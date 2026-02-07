@@ -10,43 +10,11 @@ interface SkillCategory {
   skills: string[];
 }
 
-const skillCategories: SkillCategory[] = [
-  {
-    title: "Event Coordination",
-    skills: [
-      "Venue Management",
-      "Vendor Negotiation",
-      "Logistics Planning",
-      "Guest Relations",
-      "Budgeting",
-      "Timeline Execution",
-    ],
-  },
-  {
-    title: "F&B Operations",
-    skills: [
-      "Menu Planning",
-      "Service Standards",
-      "Inventory Control",
-      "HACCP & Hygiene",
-      "Bar Operations",
-      "Banquet Management",
-    ],
-  },
-  {
-    title: "Client Relations",
-    skills: [
-      "CRM Management",
-      "Complaint Resolution",
-      "Premium Service",
-      "Upselling",
-      "Feedback Analysis",
-      "VIP Handling",
-    ],
-  },
-];
+interface SkillsSectionProps {
+  data: SkillCategory[];
+}
 
-export function SkillsSection() {
+export function SkillsSection({ data }: SkillsSectionProps) {
   return (
     <SectionWrapper id='skills' className='bg-cool-grey-100 py-24'>
       <div className='max-w-6xl mx-auto mb-20 flex flex-col md:flex-row items-end justify-between gap-8'>
@@ -79,7 +47,7 @@ export function SkillsSection() {
       </div>
 
       <div className='grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l border-ink-black/10'>
-        {skillCategories.map((category, index) => (
+        {data.map((category, index) => (
           <motion.div
             key={category.title}
             initial={{ opacity: 0, y: 30 }}

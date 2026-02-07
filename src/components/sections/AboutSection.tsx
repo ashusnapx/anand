@@ -5,7 +5,17 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import Image from "next/image";
 
-export function AboutSection() {
+interface AboutSectionProps {
+  data: {
+    title: string;
+    subtitle: string;
+    description: string;
+    stats: Array<{ label: string; value: string }>;
+    current_role: { title: string; organization: string };
+  };
+}
+
+export function AboutSection({ data }: AboutSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -50,9 +60,11 @@ export function AboutSection() {
                 Current Role
               </p>
               <p className='font-display font-bold text-xl leading-none mb-1'>
-                Coordinator
+                {data.current_role.title}
               </p>
-              <p className='text-sm font-serif italic'>Chefworks Hospitality</p>
+              <p className='text-sm font-serif italic'>
+                {data.current_role.organization}
+              </p>
             </motion.div>
           </div>
         </motion.div>
@@ -67,12 +79,14 @@ export function AboutSection() {
             <div className='flex items-center gap-4 mb-4'>
               <span className='w-8 h-[2px] bg-swiss-red'></span>
               <h2 className='text-swiss-red font-sans text-xs tracking-[0.2em] uppercase font-bold'>
-                The Narrative
+                {data.subtitle}
               </h2>
             </div>
             <h3 className='text-5xl md:text-6xl font-display font-bold text-ink-black leading-tight'>
-              Precision Meets <br />
-              <span className='font-serif italic text-swiss-red'>Passion</span>
+              {data.title.split(" ")[0]} <br />
+              <span className='font-serif italic text-swiss-red'>
+                {data.title.split(" ").slice(1).join(" ")}
+              </span>
             </h3>
           </motion.div>
 
@@ -83,29 +97,13 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p>
-              A journey that began in the industrial heart of India,{" "}
-              <span className='font-bold text-ink-black border-b border-swiss-red/50'>
-                Singrauli
-              </span>
-              , has evolved into a career defined by meticulous execution and
-              premium service standards.
-            </p>
-            <p>
-              With a foundation built at <strong>IHM Mumbai</strong> and refined
-              through immersive experiences with global brands like{" "}
-              <strong>Grand Hyatt</strong>, I bridge the gap between operational
-              complexity and seamless guest experiences.
-            </p>
+            {data.description.split("\n\n").map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
           </motion.div>
 
           <div className='grid grid-cols-2 gap-px bg-ink-black/10 border border-ink-black/10 mt-8'>
-            {[
-              { label: "Experience", value: "3+ Years" },
-              { label: "Events", value: "50+" },
-              { label: "Guests Served", value: "2000+" },
-              { label: "Cities", value: "3" },
-            ].map((stat, index) => (
+            {data.stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, backgroundColor: "#F9F9F9" }}

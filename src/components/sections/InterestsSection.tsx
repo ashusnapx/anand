@@ -40,7 +40,30 @@ const interests: Interest[] = [
   },
 ];
 
-export function InterestsSection() {
+interface InterestsSectionProps {
+  data: Array<{
+    title: string;
+    description: string;
+    icon: string;
+    style: string;
+    iconStyle: string;
+  }>;
+}
+
+export function InterestsSection({ data }: InterestsSectionProps) {
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case "Train":
+        return Train;
+      case "Utensils":
+        return Utensils;
+      case "Activity":
+        return Activity;
+      default:
+        return Activity;
+    }
+  };
+
   return (
     <SectionWrapper id='interests' className='bg-white py-24'>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-16 items-start'>
@@ -64,31 +87,34 @@ export function InterestsSection() {
         </div>
 
         <div className='grid grid-cols-1 gap-0'>
-          {interests.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className={`${item.style} p-10 flex flex-col md:flex-row items-start md:items-center gap-6 group transition-transform duration-300`}
-            >
-              <div
-                className={`p-4 rounded-none border border-current/20 ${item.iconStyle}`}
+          {data.map((item, index) => {
+            const Icon = getIcon(item.icon);
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className={`${item.style} p-10 flex flex-col md:flex-row items-start md:items-center gap-6 group transition-transform duration-300`}
               >
-                <item.icon size={28} />
-              </div>
-              <div>
-                <h4 className='text-2xl font-bold font-display mb-2 uppercase tracking-wide'>
-                  {item.title}
-                </h4>
-                <p className='text-sm opacity-80 font-sans leading-relaxed'>
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                <div
+                  className={`p-4 rounded-none border border-current/20 ${item.iconStyle}`}
+                >
+                  <Icon size={28} />
+                </div>
+                <div>
+                  <h4 className='text-2xl font-bold font-display mb-2 uppercase tracking-wide'>
+                    {item.title}
+                  </h4>
+                  <p className='text-sm opacity-80 font-sans leading-relaxed'>
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </SectionWrapper>

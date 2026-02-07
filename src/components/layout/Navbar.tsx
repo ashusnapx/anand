@@ -16,7 +16,13 @@ const navItems = [
   { name: "Contact", href: "#contact" },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+  contact: {
+    email: string;
+  };
+}
+
+export function Navbar({ contact }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const { isMenuOpen, toggleMenu, closeMenu } = useStore();
 
@@ -111,7 +117,7 @@ export function Navbar() {
                 onClick={closeMenu}
                 asChild
               >
-                <Link href='#contact'>Get in Touch</Link>
+                <a href={`mailto:${contact.email}`}>Get in Touch</a>
               </Button>
             </nav>
           </motion.div>

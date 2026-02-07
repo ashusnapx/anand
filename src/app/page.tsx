@@ -35,20 +35,27 @@ function getLogos() {
     });
 }
 
+function getContentData() {
+  const contentPath = path.join(process.cwd(), "src/data/content.json");
+  const fileContent = fs.readFileSync(contentPath, "utf-8");
+  return JSON.parse(fileContent);
+}
+
 export default function Home() {
   const logos = getLogos();
+  const content = getContentData();
 
   return (
     <main className='min-h-screen bg-cream selection:bg-gold/30'>
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <JourneySection />
-      <SkillsSection />
-      <EventsSection />
+      <Navbar contact={content.contact} />
+      <HeroSection data={content.hero} />
+      <AboutSection data={content.about} />
+      <JourneySection data={content.journey} />
+      <SkillsSection data={content.skills} />
+      <EventsSection data={content.events} />
       <ClientsSection logos={logos} />
-      <InterestsSection />
-      <ContactSection />
+      <InterestsSection data={content.interests} />
+      <ContactSection data={content.contact} />
     </main>
   );
 }

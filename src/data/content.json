@@ -1,0 +1,186 @@
+{
+  "hero": {
+    "title": "Anand Prakash",
+    "subtitle": "Event Sales & F&B Coordinator",
+    "description": "Hospitality management graduate from IHM Mumbai with execution-focused exposure in event sales coordination, F&B operations, and client servicing.",
+    "cta_primary": "The Journey",
+    "cta_secondary": "Get in Touch"
+  },
+  "about": {
+    "title": "Precision Meets Passion",
+    "subtitle": "The Narrative",
+    "description": "Hospitality management graduate from IHM Mumbai with strong execution-focused exposure in event sales coordination, F&B operations, and client servicing within premium hospitality environments.\n\nDemonstrated ability to handle mid to large-scale corporate and social events with on-ground ownership, commercial awareness, and service quality control.",
+    "stats": [
+      {
+        "label": "Experience",
+        "value": "2+ Months"
+      },
+      {
+        "label": "Events",
+        "value": "50+"
+      },
+      {
+        "label": "Guests Served",
+        "value": "2000+"
+      },
+      {
+        "label": "Cities",
+        "value": "3"
+      }
+    ],
+    "current_role": {
+      "title": "Event Sales & Operations Coordinator",
+      "organization": "Chefworks Hospitality"
+    }
+  },
+  "journey": [
+    {
+      "id": "1",
+      "year": "2021 - 2024",
+      "title": "B.Sc. Hotel Management",
+      "organization": "IHM Mumbai",
+      "location": "Mumbai, MH",
+      "description": "Academic focus on Event Management, F&B Service, Hospitality Sales, and Revenue Management. NCHMCT affiliated.",
+      "type": "education"
+    },
+    {
+      "id": "2",
+      "year": "Jul - Aug 2022",
+      "title": "Operations Intern",
+      "organization": "Grand Hyatt Mumbai",
+      "location": "Mumbai",
+      "description": "Supported front office operations and multi-outlet F&B operations ensuring SOP adherence.",
+      "type": "work"
+    },
+    {
+      "id": "3",
+      "year": "Sep - Oct 2022",
+      "title": "Event Management Intern",
+      "organization": "Grand Hyatt Mumbai",
+      "location": "Mumbai",
+      "description": "Assisted luxury events team in planning and execution of large-scale corporate and brand events.",
+      "type": "work"
+    },
+    {
+      "id": "4",
+      "year": "Oct 2022",
+      "title": "Outlet Manager Intern",
+      "organization": "Grand Hyatt Mumbai",
+      "location": "Mumbai",
+      "description": "Managed breakfast service operations at SOMA outlet during peak hours. Hystar Award winner.",
+      "type": "work"
+    },
+    {
+      "id": "5",
+      "year": "Nov 2025 - Present",
+      "title": "Event Sales & Ops Coordinator",
+      "organization": "Chefworks Hospitality",
+      "location": "Bengaluru, India",
+      "description": "Managing sales-to-execution lifecycle for premium corporate and social events. Handling clients like Amazon and Krafton.",
+      "type": "work"
+    }
+  ],
+  "skills": [
+    {
+      "title": "Event Sales Coordination",
+      "skills": [
+        "Lead Qualification (Inbound)",
+        "Event Proposals & Briefs",
+        "Corporate & Social Events",
+        "Event Documentation (BEO)",
+        "Post-event Closure"
+      ]
+    },
+    {
+      "title": "Client Relationship Support",
+      "skills": [
+        "Requirement Discovery",
+        "Stakeholder Alignment",
+        "Kitchen–Ops Liaison",
+        "Vendor Coordination"
+      ]
+    },
+    {
+      "title": "F&B Operations",
+      "skills": [
+        "Menu Planning Support",
+        "Service Flow Design",
+        "On-ground Execution",
+        "Quality Control"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "1",
+      "title": "Nandi Hills Full-day Event",
+      "client": "Corporate Entities",
+      "date": "Nov 2025",
+      "guests": "200+ Pax",
+      "description": "High Tea, Lunch & Dinner coordination for a full-day corporate retreat. Managed logistics and service delivery.",
+      "image": "/images/events/nandi_hills.png",
+      "tags": ["Full-day", "F&B", "Logistics"]
+    },
+    {
+      "id": "2",
+      "title": "Satva Northland Corporate Dinner",
+      "client": "Satva Developers",
+      "date": "Dec 2025",
+      "guests": "100 Pax",
+      "description": "Executed a structured corporate dinner event focusing on professional service and timeline management.",
+      "image": "/images/events/sattva.png",
+      "tags": ["Corporate", "Dinner", "Coordination"]
+    },
+    {
+      "id": "3",
+      "year": "Sep 2022",
+      "title": "Harley-Davidson Model Launch",
+      "client": "Harley-Davidson India",
+      "date": "Sep 2022",
+      "guests": "600+ Attendees",
+      "description": "Supported logistics and banquet coordination for a major product launch during Grand Hyatt internship.",
+      "image": "/images/events/harley_davidson.png",
+      "tags": ["Brand Launch", "Volume", "Premium"]
+    },
+    {
+      "id": "4",
+      "title": "Cocktail Reception & Birthdays",
+      "client": "Social Clients",
+      "date": "Ongoing",
+      "guests": "25 - 110 Pax",
+      "description": "Managing intimate gatherings and social celebrations with focus on personalized service.",
+      "image": "/images/events/coctail.png",
+      "tags": ["Social", "Custom Menu", "Service"]
+    }
+  ],
+  "interests": [
+    {
+      "title": "Indian Railways",
+      "description": "An encyclopedic knowledge of train routes and a passion for the engineering marvel of Indian Railways.",
+      "icon": "Train",
+      "style": "bg-ink-black text-off-white",
+      "iconStyle": "text-swiss-red"
+    },
+    {
+      "title": "Culinary Explorer",
+      "description": "Curating a journey through India's diverse cuisines via YouTube, finding inspiration for F&B trends.",
+      "icon": "Utensils",
+      "style": "bg-swiss-red text-white",
+      "iconStyle": "text-white"
+    },
+    {
+      "title": "Strategic Observer",
+      "description": "Analyzing cricket and logistics with the same precision and strategic mindset.",
+      "icon": "Activity",
+      "style": "bg-white text-ink-black border border-ink-black/10",
+      "iconStyle": "text-ink-black"
+    }
+  ],
+  "contact": {
+    "email": "anandprakash6039@gmail.com",
+    "phone": "+91-9343915591",
+    "location": "Mumbai, India",
+    "linkedin": "https://linkedin.com/in/anandhm",
+    "instagram": "https://instagram.com/anandprakash"
+  }
+}

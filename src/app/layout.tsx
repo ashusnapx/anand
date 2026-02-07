@@ -61,6 +61,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
+      suppressHydrationWarning={true}
       className={cn(
         syne.variable,
         dmSerif.variable,

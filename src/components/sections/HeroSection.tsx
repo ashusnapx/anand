@@ -6,7 +6,17 @@ import { Button } from "@/components/ui/Button";
 import { HeroBackground } from "@/components/3d/HeroBackground";
 import Link from "next/link";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  data: {
+    title: string;
+    subtitle: string;
+    description: string;
+    cta_primary: string;
+    cta_secondary: string;
+  };
+}
+
+export function HeroSection({ data }: HeroSectionProps) {
   return (
     <section className='relative min-h-screen flex items-center justify-center overflow-hidden bg-off-white'>
       {/* 
@@ -29,14 +39,14 @@ export function HeroSection() {
             <div className='flex items-center gap-4 justify-center md:justify-start mb-6'>
               <span className='h-[1px] w-12 bg-swiss-red'></span>
               <h2 className='text-swiss-red font-sans tracking-[0.2em] uppercase text-xs font-bold'>
-                Hospitality & Experience Design
+                {data.subtitle}
               </h2>
             </div>
 
             <h1 className='text-6xl md:text-8xl lg:text-9xl font-display font-bold text-ink-black leading-[0.9] -ml-1'>
-              Anand <br />
+              {data.title.split(" ")[0]} <br />
               <span className='font-serif italic text-swiss-red ml-4 md:ml-12'>
-                Prakash
+                {data.title.split(" ").slice(1).join(" ")}
               </span>
             </h1>
           </motion.div>
@@ -48,15 +58,7 @@ export function HeroSection() {
             className='max-w-md border-l-2 border-ink-black/10 pl-6 text-left'
           >
             <p className='text-xl md:text-2xl text-ink-black/80 font-serif leading-relaxed'>
-              Orchestrating premium events and operational excellence from{" "}
-              <span className='underline decoration-swiss-red decoration-2 underline-offset-4'>
-                Singrauli
-              </span>{" "}
-              to{" "}
-              <span className='underline decoration-swiss-red decoration-2 underline-offset-4'>
-                Mumbai
-              </span>
-              .
+              {data.description}
             </p>
           </motion.div>
 
@@ -72,7 +74,7 @@ export function HeroSection() {
               asChild
               className='text-lg px-10 rounded-none shadow-2xl hover:shadow-none transition-all'
             >
-              <Link href='#journey'>The Journey</Link>
+              <Link href='#journey'>{data.cta_primary}</Link>
             </Button>
             <Button
               variant='outline'
@@ -80,7 +82,7 @@ export function HeroSection() {
               asChild
               className='text-lg px-10 rounded-none border-ink-black text-ink-black hover:bg-ink-black hover:text-white'
             >
-              <Link href='#contact'>Get in Touch</Link>
+              <Link href='#contact'>{data.cta_secondary}</Link>
             </Button>
           </motion.div>
         </div>
@@ -97,12 +99,14 @@ export function HeroSection() {
             <div className='w-full h-full bg-off-white relative flex items-center justify-center overflow-hidden'>
               <img
                 src='/images/anand-hero-v2.png'
-                alt='Anand Prakash'
-                className='w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110'
+                alt={data.title}
+                className='w-full h-full object-cover group-hover:scale-110 transition-all duration-700'
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
-                  e.currentTarget.parentElement!.innerHTML =
-                    '<div class="text-center p-6"><p class="font-display text-8xl text-swiss-red/20">AP</p><p class="text-ink-black/40 font-mono text-xs mt-4">IMG: /public/images/anand-hero-v2.png</p></div>';
+                  e.currentTarget.parentElement!.innerHTML = `<div class="text-center p-6"><p class="font-display text-8xl text-swiss-red/20">${data.title
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}</p></div>`;
                 }}
               />
             </div>

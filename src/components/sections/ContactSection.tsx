@@ -7,15 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Send,
-  Loader2,
-  ArrowUpRight,
-} from "lucide-react";
+import { Send, Loader2, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -26,7 +18,17 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export function ContactSection() {
+interface ContactSectionProps {
+  data: {
+    email: string;
+    phone: string;
+    location: string;
+    linkedin: string;
+    instagram: string;
+  };
+}
+
+export function ContactSection({ data }: ContactSectionProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -39,11 +41,19 @@ export function ContactSection() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (formData: FormData) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
+
+    // Construct the mailto link
+    const mailToLink = `mailto:${data.email}?subject=${encodeURIComponent(
+      `Portfolio Inquiry: ${formData.subject}`,
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
+    )}`;
+
+    // Open the email client
+    window.location.href = mailToLink;
+
     setIsSubmitting(false);
     setIsSuccess(true);
     reset();
@@ -71,44 +81,44 @@ export function ContactSection() {
                 </h2>
               </div>
               <h3 className='text-5xl md:text-7xl font-display font-bold mb-8 leading-none'>
-                Let's Create <br />
+                Let&apos;s Create <br />
                 <span className='text-swiss-red font-serif italic'>
                   Impact.
                 </span>
               </h3>
               <p className='text-cool-grey-400 text-xl mb-16 max-w-md font-serif leading-relaxed'>
                 Whether you need detailed event coordination or operational
-                consultancy, I'm ready to bring precision and passion to your
-                project.
+                consultancy, I&apos;m ready to bring precision and passion to
+                your project.
               </p>
             </motion.div>
 
             <div className='space-y-8'>
               <a
-                href='mailto:anandprakash6039@gmail.com'
+                href={`mailto:${data.email}`}
                 className='flex items-center gap-6 text-xl md:text-2xl hover:text-swiss-red transition-colors group font-display font-bold'
               >
                 <span className='text-xs font-mono text-cool-grey-500 uppercase tracking-widest w-12 group-hover:text-swiss-red transition-colors'>
                   Mail
                 </span>
-                anandprakash6039@gmail.com
+                {data.email}
                 <ArrowUpRight className='opacity-0 group-hover:opacity-100 transition-opacity' />
               </a>
               <a
-                href='tel:+919343915591'
+                href={`tel:${data.phone.replace(/\s/g, "")}`}
                 className='flex items-center gap-6 text-xl md:text-2xl hover:text-swiss-red transition-colors group font-display font-bold'
               >
                 <span className='text-xs font-mono text-cool-grey-500 uppercase tracking-widest w-12 group-hover:text-swiss-red transition-colors'>
                   Call
                 </span>
-                +91-9343915591
+                {data.phone}
                 <ArrowUpRight className='opacity-0 group-hover:opacity-100 transition-opacity' />
               </a>
               <div className='flex items-center gap-6 text-xl group font-display font-bold'>
                 <span className='text-xs font-mono text-cool-grey-500 uppercase tracking-widest w-12'>
                   Base
                 </span>
-                <span>Mumbai, India</span>
+                <span>{data.location}</span>
                 <span className='text-[10px] text-ink-black bg-swiss-red px-2 py-1 uppercase tracking-wider font-bold'>
                   Open to Relocation
                 </span>
@@ -124,8 +134,8 @@ export function ContactSection() {
               </div>
               <div className='flex justify-between text-[10px] mt-4 text-cool-grey-500 font-mono uppercase tracking-wider'>
                 <span className='text-white'>Singrauli</span>
-                <span className='text-white'>Delhi</span>
                 <span className='text-white'>Mumbai</span>
+                <span className='text-white'>Bengaluru</span>
                 <span className='opacity-50'>Global</span>
               </div>
             </div>
@@ -233,11 +243,16 @@ export function ContactSection() {
       {/* Footer */}
       <footer className='relative z-10 border-t border-white/5 mt-20 py-12 text-center text-cool-grey-500 text-sm'>
         <div className='flex justify-center gap-8 mb-6'>
-          <a href='#' className='hover:text-swiss-red transition-colors'>
+          <a
+            href={data.linkedin}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='hover:text-swiss-red transition-colors'
+          >
             <Linkedin size={24} />
           </a>
           <a
-            href='mailto:anandprakash6039@gmail.com'
+            href={`mailto:${data.email}`}
             className='hover:text-swiss-red transition-colors'
           >
             <Mail size={24} />
