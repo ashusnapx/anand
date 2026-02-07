@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors - Modern Magazine Theme */
+  --color-swiss-red: #ff4400;
+  --color-swiss-red-50: #ffe5db;
+  --color-swiss-red-100: #ffccb8;
+  --color-swiss-red-200: #ffa385;
+  --color-swiss-red-300: #ff7a52;
+  --color-swiss-red-400: #ff5a26;
+  --color-swiss-red-500: #ff4400;
+  --color-swiss-red-600: #cc3600;
+  --color-swiss-red-700: #992900;
+  --color-swiss-red-800: #661b00;
+  --color-swiss-red-900: #330e00;
+
+  --color-off-white: #f9f9f9;
+  --color-off-white-50: #ffffff;
+  --color-off-white-100: #ffffff;
+  --color-off-white-200: #ffffff;
+  --color-off-white-300: #fdfdfd;
+  --color-off-white-400: #fbfbfb;
+  --color-off-white-500: #f9f9f9;
+  --color-off-white-600: #c7c7c7;
+  --color-off-white-700: #959595;
+  --color-off-white-800: #646464;
+  --color-off-white-900: #323232;
+
+  --color-ink-black: #111111;
+  --color-ink-black-50: #707070;
+  --color-ink-black-100: #595959;
+  --color-ink-black-200: #424242;
+  --color-ink-black-300: #2b2b2b;
+  --color-ink-black-400: #1c1c1c;
+  --color-ink-black-500: #111111;
+  --color-ink-black-600: #0d0d0d;
+  --color-ink-black-700: #090909;
+  --color-ink-black-800: #040404;
+  --color-ink-black-900: #000000;
+
+  --color-cool-grey: #e5e5e5;
+  --color-cool-grey-50: #fbfbfb;
+  --color-cool-grey-100: #f5f5f5;
+  --color-cool-grey-200: #ededed;
+  --color-cool-grey-300: #e5e5e5;
+
+  /* Fonts */
+  --font-display: var(--font-syne), sans-serif;
+  --font-serif: var(--font-dm-serif), serif;
+  --font-sans: var(--font-manrope), sans-serif;
+  --font-accent: var(--font-italiana), serif;
+}
+
+:root {
+  --background: #f9f9f9; /* Off-White */
+  --foreground: #111111; /* Ink Black */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111111;
+    --foreground: #f9f9f9;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Typography Utilities */
+.text-display {
+  font-family: var(--font-display);
+}
+
+.text-narrative {
+  font-family: var(--font-serif);
+}
+
+.text-technical {
+  font-family: var(--font-sans);
+}
+
+.text-accent-style {
+  font-family: var(--font-accent);
+}
+
+/* Custom Scrollbar for Webkit */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-off-white-200);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-black-300);
+  border-radius: 0px; /* Sharp edges for magazine look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-swiss-red-500);
+}
