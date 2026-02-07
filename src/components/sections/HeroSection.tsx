@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { HeroBackground } from "@/components/3d/HeroBackground";
 import Link from "next/link";
+import NextImage from "next/image";
 
 interface HeroSectionProps {
   data: {
@@ -24,7 +25,7 @@ export function HeroSection({ data }: HeroSectionProps) {
         to fit the "clean/sharp" look. For now, we'll keep it but ensure it doesn't clash.
         Ideally, pass a 'theme="light"' prop if HeroBackground supports it, or use opacity.
        */}
-      <div className='absolute inset-0 opacity-20 pointer-events-none mix-blend-multiply'>
+      <div className='absolute inset-0 opacity-40 pointer-events-none'>
         <HeroBackground />
       </div>
 
@@ -97,17 +98,12 @@ export function HeroSection({ data }: HeroSectionProps) {
           <div className='relative aspect-[4/5] md:aspect-[3/4] bg-cool-grey-100 shadow-[20px_20px_0px_0px_rgba(255,68,0,1)] border-2 border-ink-black overflow-hidden group'>
             {/* Image Placeholder */}
             <div className='w-full h-full bg-off-white relative flex items-center justify-center overflow-hidden'>
-              <img
+              <NextImage
                 src='/images/anand-hero-v2.png'
-                alt={data.title}
+                alt={`${data.title} - Hospitality Professional & IHM Mumbai Graduate`}
+                fill
                 className='w-full h-full object-cover group-hover:scale-110 transition-all duration-700'
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  e.currentTarget.parentElement!.innerHTML = `<div class="text-center p-6"><p class="font-display text-8xl text-swiss-red/20">${data.title
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}</p></div>`;
-                }}
+                priority
               />
             </div>
 

@@ -33,23 +33,38 @@ const italiana = Italiana({
 });
 
 export const metadata: Metadata = {
-  title: "Anand Prakash | Hospitality Professional",
+  title: "Anand Prakash | Hospitality & Event Sales Professional | IHM Mumbai",
   description:
-    "Event Sales & F&B Coordinator. Crafting premium hospitality experiences from Singrauli to Mumbai.",
-  metadataBase: new URL("https://anandprakash.com"),
+    "Official portfolio of Anand Prakash, a Hospitality Management graduate from IHM Mumbai. Specializing in Event Sales, F&B Operations, and premium hospitality execution for brands like Amazon and Harley-Davidson.",
+  metadataBase: new URL("https://anandihm.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
+  keywords: [
+    "Anand Prakash",
+    "Hospitality Professional",
+    "IHM Mumbai",
+    "Event Sales Coordinator",
+    "F&B Operations",
+    "Grand Hyatt Mumbai",
+    "Chefworks Hospitality",
+    "Bengaluru Hospitality",
+    "Event Management Portfolio",
+  ],
   openGraph: {
-    title: "Anand Prakash | Hospitality Professional",
+    title: "Anand Prakash | Hospitality & Event Sales Professional",
     description:
-      "Event Sales & F&B Coordinator. Crafting premium hospitality experiences.",
-    url: "https://anandprakash.com",
+      "Hospitality Management professional specialized in premium event execution and F&B operations. Graduate of IHM Mumbai.",
+    url: "https://anandihm.vercel.app",
     siteName: "Anand Prakash Portfolio",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Anand Prakash | Hospitality Professional",
-    description: "Event Sales & F&B Coordinator.",
+    title: "Anand Prakash | Hospitality & Event Sales Professional",
+    description:
+      "Event Sales & F&B Coordinator. Crafting premium hospitality experiences.",
   },
 };
 

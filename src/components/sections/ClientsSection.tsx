@@ -40,7 +40,7 @@ export function ClientsSection({ logos = [] }: ClientsSectionProps) {
               <div className='w-full h-full relative'>
                 <Image
                   src={client.logo}
-                  alt={`${client.name} logo`}
+                  alt={`Logo of ${client.name}`}
                   fill
                   className='object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500'
                   unoptimized // Clearbit URLs might need this if not in next.config
